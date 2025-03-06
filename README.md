@@ -15,15 +15,37 @@ This project implements a simple ping-pong game between two FastAPI servers. The
 - [httpx](https://www.python-httpx.org/) (for asynchronous HTTP requests)
 - [Requests](https://docs.python-requests.org/) (for the CLI tool)
 
-Install the required packages using pip:
+
+
+## Setup and Running the Project
+### 1. Create a Virtual Environment
+Before installing dependencies, it's recommended to use a virtual environment to isolate project dependencies.
+
+- For macOS/Linux:
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+- For Windows (Command Prompt):
+```bash
+
+python -m venv venv
+venv\Scripts\activate
+```
+- For Windows (PowerShell):
+```powershell
+python -m venv venv
+venv\Scripts\Activate.ps1
+```
+Once activated, your terminal prompt should change to indicate the virtual environment is active (e.g., (venv) before the command prompt).
+
+### 2. Install Dependencies
+After activating the virtual environment, install the required dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
-
-
-## Setup and Running the Project
-### Running the Servers
+### 3. Running the Servers
 You need to run two instances of the server with different roles and partner URLs. Open two terminal windows or tabs:
 
 Instance 1 (Initiator):
@@ -35,7 +57,7 @@ Instance 2 (Responder):
 INSTANCE_ROLE=responder PARTNER_URL=http://localhost:8000 uvicorn server:app --host 0.0.0.0 --port 8001
 ```
 
-### Using the CLI Tool
+### 4. Using the CLI Tool
 The CLI tool (pong_cli.py) controls the game by sending HTTP POST requests to both server instances.
 
 #### Commands
