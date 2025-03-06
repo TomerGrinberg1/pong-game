@@ -28,7 +28,6 @@ async def schedule_next_ping():
     """
     Wait for the specified delay and then send a ping to the partner server.
     """
-    global game_state, pong_time_ms
     await asyncio.sleep(pong_time_ms / 1000.0)
     if game_state == "running":
         async with httpx.AsyncClient() as client:
