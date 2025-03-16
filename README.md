@@ -50,11 +50,11 @@ You need to run two instances of the server with different roles and partner URL
 
 Instance 1 (Initiator):
 ```bash
-INSTANCE_ROLE=initiator PARTNER_URL=http://localhost:8001 uvicorn server:app --host 0.0.0.0 --port 8000
+INSTANCE_ROLE=initiator  python server.py 
 ```
 Instance 2 (Responder):
 ```bash
-INSTANCE_ROLE=responder PARTNER_URL=http://localhost:8000 uvicorn server:app --host 0.0.0.0 --port 8001
+INSTANCE_ROLE=responder python server.py 
 ```
 
 ### 4. Using the CLI Tool
