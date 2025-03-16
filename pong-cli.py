@@ -1,11 +1,17 @@
 import argparse
 import requests
-
+import os
+import json
 # List the control endpoints for both server instances
+with open("ports.json", "r") as f:
+    ports = json.load(f)
+
+
 SERVER_CONTROL_URLS = [
-    "http://localhost:8000/control",
-    "http://localhost:8001/control"
+    f"http://localhost:{ports['initiator_port']}/control",
+    f"http://localhost:{ports['responder_port']}/control"
 ]
+
 
 def send_command(url, command, pong_time_ms=None):
     data = {"command": command}
